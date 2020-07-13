@@ -1,0 +1,20 @@
+<lgc-nav (selectedTopic)="filterTopic($event)"></lgc-nav>
+
+<section class="home__section">
+
+  <h3 class="home__h3">THE BLOG</h3>
+  <ul *ngIf="posts?.length" class="home__ul">
+    <li class="home__li" *ngFor="let post of posts" (click)="goToPost(post.id, post.slug)">
+      <div class="home__card">
+        <div class="home__imgCont">
+          <img [src]="post.imageUrl" class="home__img" [alt]="post.imageUrl">
+        </div>
+        <div class="home__title">{{post.title}}</div>
+        <div [innerHTML]="post.truncatedContent" class="home__description"></div>
+
+        <hr />
+        <div>{{post.author}} | {{post.publish_date}}</div>
+      </div>
+    </li>
+  </ul>
+</section>
