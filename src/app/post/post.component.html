@@ -14,4 +14,13 @@
     <p>{{post.description}}</p>
     <div [innerHTML]="post.content"></div>
   </div>
+  <hr>
+  <div class="post__left" *ngIf="comments?.length">
+    Comments:
+    <div *ngFor="let comment of comments">
+      <p>{{comment.user}}, {{comment.date}}</p>
+      <p>{{comment.content}}</p>
+      <hr>
+    </div>
+  </div>
 </section>

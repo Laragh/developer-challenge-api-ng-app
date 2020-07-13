@@ -17,8 +17,8 @@ export class ApiService {
     return this.http.get(environment.apiUrl + '/posts');
   }
 
-  getApiComments(): any {
-    return this.http.get(environment.apiUrl + '/comments');
+  getApiComments(postId): any {
+    return this.http.get(environment.apiUrl + '/posts/' + postId + '/comments');
   }
 
   getPosts(): any {

@@ -36,6 +36,21 @@
 
   }
 
+  &__authorCont {
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    right: 0;
+    background: black;
+    opacity: 0.8;
+    padding: 5px 10px;
+    color: white;
+  }
+
+  &__author {
+    font-weight: lighter;
+  }
+
   &__description {
     margin-top: -10px !important;
     margin-bottom: -25px;
@@ -43,8 +58,8 @@
 
   &__card {
     cursor: pointer;
-    height: 440px;
-    width: 100%;
+    width: auto;
+    padding: 0 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -54,8 +69,6 @@
   }
 
   &__imgCont {
-    min-height: 340px;
-    height: 340px;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -69,7 +82,7 @@
   }
 
   &__img {
-    width: 120%;
+    width: 170%;
     height: auto;
     margin: auto;
     display: flex;

@@ -15,6 +15,7 @@ import { PlatformService } from '../platform.service';
 export class PostComponent implements AfterViewChecked {
   postId: any;
   post: any;
+  comments: any;
   absoluteBaseUrl = environment.absoluteBaseUrl;
   @ViewChild('hero') hero: ElementRef;
 
@@ -49,6 +50,8 @@ export class PostComponent implements AfterViewChecked {
                 name: 'description', content: `Let's Get Checked - Developer Challenge - blog, fashion, technology, social, trend, digital, angular 10, ${this.post.description}`
               }, true);
 
+              this.getComments();
+
             }
           });
         });
@@ -65,6 +68,12 @@ export class PostComponent implements AfterViewChecked {
       if (this.post && this.hero.nativeElement.style.backgroundImage.indexOf(this.post.imageUrl) < 0) {
         this.hero.nativeElement.style.backgroundImage = `url(${this.post.imageUrl})`;
       }
+    });
+  }
+
+  getComments(): void {
+    this.apiS.getApiComments(this.postId).subscribe((res) => {
+      this.comments = res;
     });
   }
 

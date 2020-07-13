@@ -60,8 +60,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       const getP = this.apiS.getPosts().subscribe((res) => {
         res.map((post) => {
           post.truncatedContent = '<p>' +
-            (post.content.split('<p>')[1].length < 45 ? post.content.split('<p>')[1]
-              : post.content.split('<p>')[1].substring(0, 45) + '...');
+            (post.content.split('<p>')[1].length < 30 ? post.content.split('<p>')[1]
+              : post.content.split('<p>')[1].substring(0, 30) + '...');
           this.posts = res;
           this.originalPosts = res;
           resolve('posts created');
